@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Guinness World Records</title>
+    <!--          CSS         -->
+    <style>
+
+     * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Gill Sans", sans-serif;
+
+}
+.header{
+    position: fixed;
+    top:0; left:0; right:0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.551);
+    display: flex;
+    align-items: center;
+    padding:20px 3%;
+    
+}
+.header .logo{
+    margin-right: auto;
+}
+.header .navbar a{
+  color: #000000;
+    margin-right: 2rem;
+    font-size: 20px;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.header .navbar a:hover{
+   text-decoration: underline;
+}
+.header .icons i{
+    height:3rem;
+    line-height:3rem;
+    width:3rem;
+    text-align: center;
+    color:black;
+    background:#eee;
+    border-radius: 50%;
+    margin-left: .7rem;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.header .icons i:hover{
+    background-color: #465134;
+    color: #fffc;
+}
+
+.header .search-form{
+    position: absolute;
+    background:#fff;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    top:110%; right:7%;
+    height:4rem;
+    width:30rem;
+    padding:1rem;
+    display: none;
+}
+
+.header .search-form.active{
+    display: flex;
+}
+
+.header .search-form #search-box{
+    width:80%;
+    border-radius: .5rem;
+    padding:1rem;
+    font-size: 1.7rem;
+    height: 80%;
+}
+
+.header .search-form label{
+    font-size: 2rem;
+    padding-left: 1rem;
+    padding-right: .5rem;
+    cursor: pointer;
+}
+
+.header .search-form label:hover{
+    color:#465134;
+}
+
+#menu-bars{
+    display: none;
+}
+.video{
+   position: absolute;
+   right: 0;
+   bottom: 0;
+   z-index: -1;
+   display: flex;
+}
+.main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+.txt{
+ text-align: center;
+ position: absolute;
+ top: 50%; left: 50%;
+ transform: translate(-50%,-50%);
+ width: 100%;
+ text-shadow: #000000 2px 2px ;
+}
+.txt span{
+  color: #8b8787;
+  text-transform: uppercase;
+  display: block;
+}
+.txt1{
+  font-size: 50px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  margin-bottom: 20px;
+  margin-left: 40px;
+  position: relative;
+  background-color: #ffffff00;
+  animation: text 3s 1;
+}
+@keyframes text{
+  0%{
+    color: #7c88a8;
+  }
+
+  30%{
+    letter-spacing: 15px;
+  
+    color: #333;
+  }
+}
+.title {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  color: #0000;
+  text-shadow: #000000 2px 2px ;
+  font-size: 2.2em;
+  font-weight: 300px;
+  margin: 15px;
+}
+.container::-webkit-scrollbar {
+  height: 30px;
+}
+.container::-webkit-scrollbar-track{
+  background: #f1f1f1;
+  border-radius: 25px;
+}
+.container::-webkit-scrollbar-thumb{
+  background: #465134;
+  border-radius: 25px;
+}
+.container::-webkit-scrollbar-thumb:hover {
+  background: #61704a;
+}
+.container {
+  display: flex;
+  gap: 12px;
+  max-width: 100%;
+  width: 100%;
+  border-radius: 12px;
+  padding: 30px;
+  overflow-x:scroll;
+  scroll-padding: 30px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1); 
+  background:#eee;
+
+}
+.container .card {
+  display: flex;
+  flex: 0 0 100%;
+  flex-direction:column;
+  align-items: center;
+  padding: 30px;
+  border-radius: 12px;
+  background: rgb(252, 248, 248);
+  scroll-snap-align: start;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+}
+.container p{
+  line-height: 1.7rem;
+}
+.card .image {
+  height: 250px;
+  width: 400px;
+  padding: 4px;
+  border-radius: 20px;
+}
+.image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 5px solid #fff;
+}
+.card h2 {
+  margin-top: 25px;
+  color: #333;
+  font-size: 22px;
+  font-weight: 600;
+}
+.card p {
+  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #333;
+  text-align: center;
+} 
+.date{
+    padding-top: 2rem;
+    font-size: 0.9rem;
+    color:#61704a;
+  
+}
+.text{
+    font-size: 1.6rem;
+    line-height: 1.7;
+    padding:1rem 0;
+}
+.container .links{
+    border-top:solid rgba(0, 0, 0, 0.129);
+    margin-top: 5.5rem;
+    padding-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    
+}
+.container .links .user{
+    margin-left: 10rem;
+}
+.container .links .icon{
+    padding-right: 10rem;
+}
+.container .links a{
+    font-size: 1rem;
+    color:#61704a;
+}
+.container .links a i{
+    padding-right: .2rem;
+    color:#61704a;
+}
+.container .links a:hover{
+    color:black;
+    text-decoration: underline;
+}
+.container .links a:hover i{
+    color:black;
+    text-decoration: underline;
+
+}
+a{
+  text-decoration: none;
+}
+#title{
+   text-align: center;
+   font-weight: bold;
+   font-size: 30px;
+}
+#arrow-title{
+  padding-top: 70px;
+}
+#arrow{
+  padding-top: 10px;
+  font-size: 60px;
+  position: absolute;
+
+}
+footer{
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  background: #111;
+}
+footer .content{
+  max-width: 1350px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+footer .content p,a{
+  color: #fff;
+}
+footer .content .box{
+  width: 33%;
+  transition: all 0.4s ease;
+}
+footer .content .topic{
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 16px;
+
+}
+footer .content p{
+  text-align: justify;
+}
+footer .content .lower .topic{
+  margin: 24px 0 5px 0;
+}
+footer .content .lower i{
+  padding-right: 16px;
+}
+footer .content .middle{
+  padding-left: 80px;
+}
+footer .content .middle a{
+  line-height: 32px;
+}
+footer .content .right input[type="text"]{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  color: #d9d9d9;
+  background: #000;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 17px;
+  border: 2px solid #222222;
+}
+footer .content .right input[type="submit"]{
+  height: 42px;
+  width: 100%;
+  font-size: 18px;
+  color: #d9d9d9;
+  background:  #659d97;
+  outline: none;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-top: 12px;
+  border: 2px solid  #61704a;
+  transition: all 0.3s ease-in-out;
+}
+.content .right input[type="submit"]:hover{
+  background: none;
+  color:   #61704a;
+}
+footer .content .media-icons a{
+  font-size: 16px;
+  height: 45px;
+  width: 45px;
+  display: inline-block;
+  text-align: center;
+  line-height: 43px;
+  border-radius: 5px;
+  border: 2px solid #222222;
+  margin: 30px 5px 0 0;
+  transition: all 0.3s ease;
+}
+.content .media-icons a:hover{
+  border-color: #61704a;
+
+}
+label{
+  color: #d9d9d9;
+}
+footer .bottom{
+  width: 100%;
+  text-align: left;
+  margin-left: 10px;
+  color: #d9d9d9;
+  padding: 0 40px 5px 0;
+}
+footer .bottom a{
+  color: #61704a;
+}
+footer a{
+  transition: all 0.3s ease;
+}
+footer a:hover{
+  color:  #61704a;
+}
+
+@media(min-aspect-ratio:16/9){
+ .video{
+    width: 100%;
+    height: auto;
+    }
+}
+ @media(max-aspect-ratio:16/9){
+ .video{
+    width: auto;
+    height: 100%;
+     }
+}
+@media (max-width:991px){
+.header{
+    padding:1.5rem;
+}
+}
+@media (max-width:768px){
+
+#menu-bars{
+    display: inline-block;
+}
+
+.header .search-form{
+    top:100%; left: 0; right: 0;
+    width: 100%;
+    border-radius: 0;
+}
+
+.header .navbar{
+    position: absolute;
+    top:100%; left: 0; right: 0;
+    background: #fff;        
+    display: none;
+}
+
+.header .navbar.active{
+    display: block;
+}
+
+.header .navbar a{
+    display: block;
+    background:#f7f7f7;
+    padding:1.5rem;
+    margin:1.5rem;
+    border-radius: .5rem;
+}
+}
+@media (max-width:1100px) {
+  footer .content .middle{
+    padding-left: 50px;
+  }
+}
+@media (max-width:950px){
+  footer .content .box{
+    width: 50%;
+  }
+  .content .right{
+    margin-top: 40px;
+  }
+}
+@media (max-width:560px){
+  footer{
+    position: relative;
+  }
+  footer .content .box{
+    width: 100%;
+    margin-top: 30px;
+  }
+  footer .content .middle{
+    padding-left: 0;
+  }
+}
+
+      
+</style>
+    
+  </head>
+  <body>
+        <!--           header          -->
+        <header class="header">
+        
+          <a href="#" class="logo"><img src="logo.png" alt="logo" width="50px"></a>
+    
+          <nav class="navbar">
+            <a href="home.html">Home</a>
+            <a href="contact-us.html">Contact us</a>
+            <a href="about-us.html">About us</a>
+
+          
+          </nav>
+          <div class="icons">
+            <i class="fas fa-bars" id="menu-bars"></i>
+            <i class="fas fa-search" id="search-icon"></i>
+        </div>
+    
+        <form action="" class="search-form">
+            <input type="search" name="" placeholder="search here..." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+        </header>
+        <section class="main">
+          <div>
+            <video autoplay loop muted plays-inline class="video">
+              <source src="guonnesVideo 2.mov" type="video/mp4">
+            </video>
+       <div class="txt">
+        <span class="txt1">Saudi Arabia In Guinness <br>Records</span>
+        <span class="txt2"></span>
+       </div>
+          </div>
+        </section>
+
+     <!--                Section                 -->
+     <div>
+        <h2 class="title">From the largest mirrored building to the tallest lighthouse, KSA has them all</h2>
+     </div>
+    <section class="container">
+      <div class="card"> 
+        <div class="image">
+          <img class="noor-img" src="guinnes.jpeg"/>
+      </div>
+      <h2 id="title">Saudi Arabia's Journey To The Guinness World Records</h2>
+        <p class="text">Huge amount of efforts to enhance entertainment and tourism over the past years are wmbellished with numerous historic records which paved the way for the kingdom to achive various titles and recognitions from the Guinness World Records.
+          <br>Saudi Arabia has over 300 Records in Guinness World Records but we talked abouut 8 of them just to give an overviwe for Saudi achievements, you can discover many more by <a style="color: #61704a; font-weight: bold;" href="https://www.guinnessworldrecords.com/search?term=saudia%20arabia&page=1&type=all&max=20&partial=_Results&" target="_blank">CLICKING HERE.</a> 
+        </p>
+        <br>
+        <h3 id="arrow-title">YOU CAN SCROLL RIGHT TO SEE MORE</h3>
+      </div>
+      <div class="card"> 
+        <div class="image">
+          <img class="noor-img" src="noor-riyadh.jpeg"/>
+      </div>
+      <div class="date">
+        <i class="far fa-calendar"></i>
+         <span>15 nov, 2022</span>
+    </div>
+      <h2>Massive light art festival in Saudi Arabia</h2>
+        <p class="text"> Noor Riyadh is one of the largest light and art festivals in the world, and was celebrated recently in its second edition in the capital city of Saudi Arabia, Riyadh.
+            The record titles that the event achieved were:
+        </p>
+        <div class="links">
+          <a href="#" class="icon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+              <span>by NOOR RIYADH</span>
+          </a>
+          <a href="#" class="user">
+            <i class="fa fa-map-pin"></i>
+             <span>RIYADH</span>
+          </a>
+      </div> 
+      </div>
+      <!--           Content             -->
+      <div class="card">
+        <div class="image">
+           <img class="outlet-img" src="outlet.webp"/>
+        </div>
+        <div class="date">
+          <i class="far fa-calendar"></i>
+            <span>1st oct, 2022</span>
+      </div>
+        <h2>Largest pop-up outlet centre</h2>
+        <p class="text">GEA attempted this record to showcase their achievement of the big sale outlet, a temporary venue, with a duration of 14 days having high end brands for various categories at a great discount.
+        </p>
+        <div class="links">
+          <a href="#" class="icon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+              <span>by SELA COMPANY</span>
+          </a>
+          <a href="#" class="user">
+            <i class="fa fa-map-pin"></i>
+             <span>RIYADH</span>
+          </a>
+      </div>
+      </div>
+      <div class="card">
+        <div class="image">
+            <img class="dome-img" src="dome.webp"/>
+        </div>
+        <div class="date">
+          <i class="far fa-calendar"></i>
+          <span>30 may, 2021</span>
+      </div>
+        <h2>Largest geodesic dome</h2>
+        <p class="text">Jeddah Super Dome is a multi-purpose event space and has the capacity to host a number of different events such as concerts, sports events, and exhibitions.
+        </p>
+        <div class="links">
+          <a href="#" class="icon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+              <span>by JSUPERDOME</span>
+          </a>
+          <a href="#" class="user">
+            <i class="fa fa-map-pin"></i>
+              <span>JEEDAH</span>
+          </a>
+      </div> 
+      </div>
+      <div class="card">
+        <div class="image">
+            <img class="mirror-img" src="maraya2.jpeg"/>
+        </div>
+        <div class="date">
+          <i class="far fa-calendar"></i>
+          <span>21 dec, 2018</span>
+      </div>
+        <h2>Largest mirrored building</h2>
+        <p class="text">
+            Maraya is a stunning piece of art set in the desert canyon of Ashar Valley. Designed to blend into the surrounding landscape, it rises from the sand like a mirage. The state-of-the-art structure is covered in 9,740 mirrored panels reflecting AlUla's beauty, making it the largest mirrored building in the world, according to Guinness World Records.
+        </p>
+        <div class="links">
+          <a href="#" class="icon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+              <span>by unknown
+              </span>
+          </a>
+          <a href="#" class="user">
+            <i class="fa fa-map-pin"></i>
+              <span>ALULA</span>
+          </a>
+      </div>
+      </div>
+      <div class="card">
+        <div class="image">
+            <img class="parks-img" src="parks.webp"/>
+        </div>
+        <div class="date">
+          <i class="far fa-calendar"></i>
+          <span>2 nov, 2021</span>
+      </div>
+        <h2>Largest saxaul botanical garden</h2>
+        <p class="text">The Al Ghadha environmental association was founded to protect areas of botanical interest and forms plantation programs along with the public. The people of the city of Unaizah have taken care of the Al Ghadha tree for 5 decades, by enacting strict laws against cutting trees. </p>         
+        </p>
+        <div class="links">
+          <a href="#" class="icon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+              <span>by Al Ghadha parks</span>
+          </a>
+          <a href="#" class="user">
+            <i class="fa fa-map-pin"></i>
+              <span>Al-QASSIM</span>
+          </a>
+      </div>
+      </div>
+      <div class="card">
+        <div class="image">
+           <img src="VETERINARY-HOSPITAL-670x300.jpeg" class="hospital-img">
+        </div>
+        <div class="date">
+          <i class="far fa-calendar"></i>
+          <span>10 oct, 2022</span>
+      </div>
+        <h2>Largest veterinary hospital</h2>
+        <p class="text">Salam veterinary hospital attempted this record to showcase being unique and large hospital able to serve many animals, up to 4000 animals at one time, which created the ambition to be the owner of the largest veterinary hospital in the world and to document this historically through Guinness World Records.
+        </p>
+        <div class="links">
+          <a href="#" class="icon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+              <span>by SALEM GROUB</span>
+          </a>
+          <a href="#" class="user">
+            <i class="fa fa-map-pin"></i>
+              <span>Al-QASSIM</span>
+          </a>
+      </div>
+      </div>
+      <div class="card">
+        <div class="image">
+            <img class="plant-img" src="plant.jpeg"/> 
+        </div>
+        <div class="date">
+          <i class="far fa-calendar"></i>
+          <span>15 feb, 2022</span>
+      </div>
+        <h2>Largest reverse osmosis water desalination plant</h2>
+        <p class="text"> The largest reverse osmosis water desalination plant is Rabigh Three, producing 600,000 cubic meter(s) per day and was achieved by ACWA Power and Saudi Brothers Commercial Company SBCC (both Saudi Arabia), in Rabigh City, Saudi Arabia, on 31 December 2021
+            ACWA Power achieved this record title to demonstrate its capacity in producing water through the reverse osmosis technology.</p>
+            <div class="links">
+              <a href="#" class="icon">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                  <span>by ACWA POWER</span>
+              </a>
+              <a href="#" class="user">
+                <i class="fa fa-map-pin"></i>
+                <span>RABIGH</span>
+              </a>
+          </div>
+      </div>
+      <div class="card">
+        <div class="image">
+            <img class="oasis-img" src="oasis.jpeg"/> 
+        </div>
+        <div class="date">
+          <i class="far fa-calendar"></i>
+          <span>UNKOWN</span>
+      </div>
+        <h2>Largest oasis</h2>
+        <p class="text"> The largest self-contained oasis in the world is the Al-Ahsa Oasis. Located in south-eastern Saudi Arabia, there are more than 2.5 million palm trees in the oasis, which is fed from a huge underground aquifer, which allows agriculture all year round in a region that is otherwise sand desert. The oasis is named after the Al-Ahsa region in which it lies, and occupies around 85.4 square kilometres (32.9 square miles) irrigated by the flow of more than 280 artesian springs.</p>
+        <div class="links">
+          <a href="#" class="icon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+              <span>by Alhasa oasis</span>
+          </a>
+          <a href="#" class="user">
+            <i class="fa fa-map-pin"></i>
+              <span>RIYADH</span>
+          </a>
+      </div>
+      </div>
+      <div class="card">
+        <div class="image">
+            <img class="ABRAJ-img" src="Abraj-al-Bait-Towers.jpeg"/> 
+        </div>
+        <div class="date">
+          <i class="far fa-calendar"></i>
+          <span>1st jan, 2012</span>
+      </div>
+        <h2>Largest building by capacity</h2>
+        <p class="text"> The Abraj Al Bait Towers complex in Mecca, Saudi Arabia, is designed to house 65,000 people. The largest of the towers, the 120-floor Hotel Tower, is 601 m (1,972 ft) tall and has a floor space (Gross Floor Area, GFA) of 310,638 m² (3,343,680 ft²). The entire development has a GFA of 1,575,815 m² (16,961,931 ft²) – the largest for a non-industrial endowment – and has the largest capacity for human habitation, comprising primarily of residences and hotel rooms.</p>
+        <div class="links">
+          <a href="#" class="icon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+              <span>by Bin Landen Company</span>
+          </a>
+          <a href="#" class="user">
+            <i class="fa fa-map-pin"></i>
+              <span>MEECA</span>
+          </a>
+      </div>
+      </div>
+    </section>
+    <br>
+    <br>
+    <!--              footer             -->
+    <footer>
+      <div class="content">
+        <div class="left box">
+          <div class="upper">
+            <div class="topic"> About our website</div>
+            <label>
+             To discovre more about Saudi Arabia and its activities ,cities, regions, pleces and more entertainment options
+            </label>
+          </div>
+          <div class="lower">
+            <div class="topic">Contact us</div>
+            <div class="phone">
+             <a href="#"><i class="fas fa-phone-volume"></i>8002444010</a>
+            </div>
+            <div class="email">
+              <a href="mailto:explore.saudi11@gamil.com"><i class="fas fa-envelope"></i>explore.saudi11@gmail.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="middle box">
+          <div class="topic">Quick links</div>
+          <div><a href="home.html">Home page</a></div>
+          <div><a href="contact-us.html">contact us</a></div>
+          <div><a href="about-us.html">about us</a></div>
+       
+        </div>
+        <div class="right box">
+          <div class="topic">Find us</div>
+          <form action="#">
+           <p>our social media</p>
+            <div class="media-icons">
+              <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+            
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="bottom">
+        <p> Copyright ©️ 2023 <a href="#">Saudi Tourism Authority</a> All rights reserved</p>
+      </div>
+    </footer>
+    <!--              JavaScript           -->
+    <script>
+              let menu = document.querySelector('#menu-bars');
+        let navbar = document.querySelector('.navbar');
+        
+        menu.onclick = () =>{
+          menu.classList.toggle('fa-times');
+          navbar.classList.toggle('active');
+          searchIcon.classList.remove('fa-times');
+          searchForm.classList.remove('active');
+        }
+        
+        let searchIcon = document.querySelector('#search-icon');
+        let searchForm = document.querySelector('.search-form');
+        
+        searchIcon.onclick = () =>{
+          searchIcon.classList.toggle('fa-times');
+          searchForm.classList.toggle('active');
+          menu.classList.remove('fa-times');
+          navbar.classList.remove('active');
+        }
+        
+        window.onscroll = () =>{
+          menu.classList.remove('fa-times');
+          navbar.classList.remove('active');
+          searchIcon.classList.remove('fa-times');
+          searchForm.classList.remove('active');
+        }
+    </script>
+  </body>
+</html>
