@@ -33,10 +33,10 @@ We create schema in mongo DB that holds the following objects: username, email a
 and it will be stored automatically to any user that register to our website.
 
 # Students Name : 
-Majd Alotaibi 441021391
-Norah Alzoubi 441020109
-Aseel Alsadoon 441019724
-Nehal Alrubayyi 441019356
+- Majd Alotaibi 441021391
+- Norah Alzoubi 441020109
+- Aseel Alsadoon 441019724
+- Nehal Alrubayyi 441019356
 
 
 # References 
