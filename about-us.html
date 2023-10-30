@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+  <!--            CSS           -->
+    <style>
+     @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+     *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        
+     }
+     .container{
+        text-align: center;
+        background: #f5f5f5;
+     }
+     h1{
+        padding-top: 60px;
+        color: #444;
+        font-size: 90px;
+        font-weight: 600px;
+        margin: auto;
+        line-height: 50px;
+        margin-bottom: 60px;
+        animation: text 3s 1;
+
+     }
+     @keyframes text{
+     0%{
+    color: #000000;
+    }
+    30%{
+    letter-spacing: 15px;
+    color: #333;
+  }
+}
+     .sub-container{
+        max-width: 1200px;
+        margin: auto;
+        padding: 38px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+     }
+     .teams{
+        margin: 10px;
+        padding: 22px;
+        max-width: 30%;
+        cursor: pointer;
+        transition: 0.4s;
+     }
+     .teams:hover{
+        background: #ddd;
+        border-radius: 20px;
+     }
+     .teams img{
+        width: 200px;
+        height: 200px;
+     }
+     h3{
+       padding: 12px;
+       font-weight: bold;
+       font-size: 20px;
+       text-transform: uppercase; 
+     }
+     .job{
+       font-style: italic;
+       color: #999;
+     }
+     #id{
+       margin: 20px 0;
+       font-weight: lighter;
+       color: #4e4e4e; 
+     }
+     .social-icons{
+        margin: 14px;
+     }
+     .social-icons a{
+        display: inline-block;
+        height: 30px;
+        width: 30px;
+        transition: 0.4s;
+        color: rgb(0, 0, 0);
+     }
+     .social-icons a:hover{
+        transform: scale(1.5);
+     }
+     footer{
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  background: #111;
+}
+footer .content{
+  max-width: 1350px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+footer .content p,a{
+  color: #fff;
+}
+footer .content .box{
+  width: 33%;
+  transition: all 0.4s ease;
+}
+footer .content .topic{
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 16px;
+
+}
+footer .content p{
+  text-align: justify;
+}
+footer .content .lower .topic{
+  margin: 24px 0 5px 0;
+}
+footer .content .lower i{
+  padding-right: 16px;
+}
+footer .content .middle{
+  padding-left: 80px;
+}
+footer .content .middle a{
+  line-height: 32px;
+}
+footer .content .right input[type="text"]{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  color: #d9d9d9;
+  background: #000;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 17px;
+  border: 2px solid #222222;
+}
+footer .content .right input[type="submit"]{
+  height: 42px;
+  width: 100%;
+  font-size: 18px;
+  color: #d9d9d9;
+  background:  #61704a;
+  outline: none;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-top: 12px;
+  border: 2px solid  #61704a;
+  transition: all 0.3s ease-in-out;
+}
+.content .right input[type="submit"]:hover{
+  background: none;
+  color:   #61704a;
+}
+footer .content .media-icons a{
+  font-size: 16px;
+  height: 45px;
+  width: 45px;
+  display: inline-block;
+  text-align: center;
+  line-height: 43px;
+  border-radius: 5px;
+  border: 2px solid #222222;
+  margin: 30px 5px 0 0;
+  transition: all 0.3s ease;
+}
+.content .media-icons a:hover{
+  border-color: #61704a;
+
+}
+label{
+  color: #d9d9d9;
+}
+footer .bottom{
+  width: 100%;
+  text-align: left;
+  margin-left: 10px;
+  color: #d9d9d9;
+  padding: 0 40px 5px 0;
+}
+footer .bottom a{
+  color: #61704a;
+}
+footer a{
+  transition: all 0.3s ease;
+}
+footer a:hover{
+  color:  #61704a;
+}
+
+@media (max-width:1100px) {
+  footer .content .middle{
+    padding-left: 50px;
+  }
+}
+@media (max-width:950px){
+  footer .content .box{
+    width: 50%;
+  }
+  .content .right{
+    margin-top: 40px;
+  }
+}
+@media (max-width:560px){
+  footer{
+    position: relative;
+  }
+  footer .content .box{
+    width: 100%;
+    margin-top: 30px;
+  }
+  footer .content .middle{
+    padding-left: 0;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <!--              content           -->
+    <div class="container">
+        <h1>Our Team</h1>
+    <div class="sub-container">
+    <div class="teams">
+        <img src="profile.png" alt="profilePic" >
+        <h3>Majd Alotaibi</h3>
+        <p class="job">Computer scince Student</p>
+        <p id="id">ID:441021391</p>
+
+        <div class="social-icons">
+            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+   
+    <div class="teams">
+        <img src="profile.png" alt="profilePic" >
+        <h3>Aseel Alsadoon</h3>
+        <p class="job">Computer scince Student</p>
+        <p id="id">ID:441019724</p>
+
+        <div class="social-icons">
+            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+   
+    <div class="teams">
+        <img src="profile.png" alt="profilePic" >
+        <h3>Norh Alzoubi</h3>
+        <p class="job">Computer scince Student</p>
+        <p id="id">ID:441020109</p>
+
+        <div class="social-icons">
+            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+    
+    <div class="teams">
+        <img src="profile.png" alt="profilePic" >
+        <h3>Nehal Alrubayyi</h3>
+        <p class="job">Computer scince Student</p>
+        <p id="id">ID:441019356</p>
+
+        <div class="social-icons">
+            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<!--                footer             -->
+<footer>
+    <div class="content">
+      <div class="left box">
+        <div class="upper">
+          <div class="topic"> About our website</div>
+          <label>
+           To discovre more about Saudi Arabia and its activities ,cities, regions, pleces and more entertainment options
+          </label>
+        </div>
+        <div class="lower">
+          <div class="topic">Contact us</div>
+          <div class="phone">
+           <a href="#"><i class="fas fa-phone-volume"></i>8002444010</a>
+          </div>
+          <div class="email">
+            <a href="mailto:explore.saudi11@gamil.com"><i class="fas fa-envelope"></i>explore.saudi11@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="middle box">
+        <div class="topic">Quick links</div>
+        <div><a href="home.html">Home page</a></div>
+        <div><a href="contact-us.html">contact us</a></div>
+        <div><a href="#">about us</a></div>
+     
+      </div>
+      <div class="right box">
+        <div class="topic">Find us</div>
+        <form action="#">
+         <p>our social media</p>
+          <div class="media-icons">
+            <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+          
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="bottom">
+      <p> Copyright ©️ 2023 <a href="#">Saudi Tourism Authority</a> All rights reserved</p>
+    </div>
+  </footer>
+    
+</body>
+</html>
